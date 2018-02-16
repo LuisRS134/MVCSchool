@@ -10,6 +10,7 @@ public class Group {
     String grade;
     int level;
 
+    /*****CONSTRUCTORS*****/
     public Group(long id, String code, String grade, int level) {
         this.id = id;
         this.code = code;
@@ -17,6 +18,7 @@ public class Group {
         this.level = level;
     }
 
+    /******GETTER AND SETTER******/
     public long getId() {
         return id;
     }

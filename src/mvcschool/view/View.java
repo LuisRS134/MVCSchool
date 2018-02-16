@@ -21,31 +21,21 @@ public class View implements Observer {
     private Menu menu;
     private boolean exit;
 
+    /**
+     * ****CONSTRUCTOR
+     *
+     * @param control
+     * @param model****
+     */
     public View(Controller control, Model model) {
         this.control = control;
         this.model = model;
         this.model.addObserver(this);
-        menu = builMenu();
+        this.menu = new Menu();
         doControl();
     }
 
-    private Menu builMenu() {
-        Menu mnu = new Menu("Menu");
-        mnu.add(new Option("Exit"));
-        mnu.add(new Option("List group"));
-        mnu.add(new Option("Add group"));
-        mnu.add(new Option("Modify group"));
-        mnu.add(new Option("Delete group"));
-        mnu.add(new Option("List all students"));
-        mnu.add(new Option("Add student"));
-        mnu.add(new Option("Modify student"));
-        mnu.add(new Option("Delete student"));
-        mnu.add(new Option("Enrol student in a group"));
-        mnu.add(new Option("Unenrol student from group"));
-        return mnu;
-    }
-
-     @Override
+    @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof EventMessage) {
             EventMessage evm = (EventMessage) arg;
@@ -70,6 +60,7 @@ public class View implements Observer {
                         alert("Successfull delete of group:" + evm.getData().toString() + "\n");
                     }
                     break;
+
                 case INSERT_STUDENTS:
                     if (evm.getType() == EventMessage.EventType.OK) {
                         alert("Successfull insertion of student:" + evm.getData().toString() + "\n");
@@ -96,51 +87,61 @@ public class View implements Observer {
             }
         }
     }
-    private void doControl() {
-        exit = false;
+
+    public void doControl() {
         do {
             menu.show();
-            int optNumber = menu.choose();
-            switch (optNumber) {
-                case 0: // exit.
+            String action = menu.getSelectedOptionActionCommand();
+            processAction(action);
+
+        } while (!exit);
+    }
+
+    /**
+     * we send you the action
+     * @param action 
+     */
+    public void processAction(String action) {
+        if (action != null) {
+            switch (action) {
+                case "exit": // exit.
                     exit = true;
                     break;
-                case 1: // list all group.
+                case "list_groups": // list all group.
                     //TODO
                     break;
-                case 2: // add group.
+                case "add_group": // add group.
                     //TODO                    
                     break;
-                case 3: // modify group.
+                case "modify_group": // modify group.
                     //TODO
                     break;
-                case 4: // remove group.
+                case "delete_group": // remove group.
                     //TODO
                     break;
-                case 5: //list all students.
+                case "list_students": //list all students.
                     //TODO
                     break;
-                case 6: // add students.
+                case "add_student": // add students.
                     //TODO
                     break;
-                case 7: // modify students.
+                case "modify_student": // modify students.
                     //TODO
                     break;
-                case 8: // remove students.
+                case "delete_modify": // remove students.
                     //TODO
                     break;
-                case 9: // Enrol student in a group.
+                case "enol_student": // Enrol student in a group.
                     //TODO
                     break;
-                case 10: // Unenrol student from group
+                case "unenrol_student": // Unenrol student from group
                     //TODO
                     break;
                 default:
                     System.out.println("Wrong option");
                     break;
             }
-        } while (!exit);
-        System.exit(0);
+        }
     }
 
     private void alert(String s) {

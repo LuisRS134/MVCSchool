@@ -9,12 +9,14 @@ public class Student {
     String name;
     int age;
 
+    /*****CONSTRUCTOR****/
     public Student(long id, String name, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
+    /******GETTER AND SETTER******/
     public long getId() {
         return id;
     }

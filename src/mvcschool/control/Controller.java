@@ -10,51 +10,94 @@ import mvcschool.view.View;
  * @author Luis
  */
 public class Controller {
+
     private Model model;
     private View view;
-    
+
+    /**
+     * ***CONSTRUCTORS***
+     */
     public Controller(Model model) {
         this.model = model;
         this.view = new View(this, model);
     }
-    
-    public void listGroup(){
+
+    /**
+     * We instantiate the model and call the method of listing groups.
+     */
+    public void listGroup() {
         //TODO
     }
-    
-    public void addGroup(Group group){
+
+    /**
+     * We instantiate the model and call the method of add group.
+     */
+    public void addGroup(Group group) {
         //TODO
     }
-    
-    public void modifyGroup(String id){
+
+    /**
+     * We instantiate the model and call the method of modify group.
+     */
+    public void modifyGroup(String code) {
         //TODO
     }
+
     
-    public void removeGroup(String id){
+    public void searchGroupByCode(String code) {
         //TODO
     }
-    
-    public void listStudents(){
+
+    /**
+     * We instantiate the model and call the method of remove group.
+     */
+    public void removeGroup(String id) {
         //TODO
     }
-    
-    public void addStudents(Student student){
+
+    /**
+     * We instantiate the model and call the method of listing students.
+     */
+    public void listStudents() {
         //TODO
     }
-    
-    public void modifyStudents(String id){
+
+    /**
+     * We instantiate the model and call the method of add student.
+     */
+    public void addStudents(Student student) {
         //TODO
     }
-    
-    public void removeStudnets(String id){
+
+    /**
+     * We instantiate the model and call the method of modify student.
+     */
+    public void modifyStudents(String id) {
         //TODO
     }
-    
-    public void enrolStudent(){
+
+    public void searchStudentByCode(String code) {
         //TODO
     }
-    
-    public void unenrolStudent(){
+
+    /**
+     * We instantiate the model and call the method of remove student.
+     */
+    public void removeStudnets(String id) {
+        //TODO
+    }
+
+    /**
+     * We instantiate the model and call the method of enrol student.
+     */
+    public void enrolStudent(String id) {
+        //TODO
+    }
+
+    /**
+     * We instantiate the model and call the method of unenrol student.
+     */
+    public void unenrolStudent(String id) {
         //TODO
     }
 }

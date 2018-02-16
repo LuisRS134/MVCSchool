@@ -12,67 +12,79 @@ import java.util.Observer;
  */
 public class Model extends Observable {
 
+    // Observers list to implement Observer/Observable pattern.
+    private List<Observer> observers;
+    // Data.
     private List<Student> students;
     private List<Group> groups;
-    private List<Observer> observers;
 
+    /**
+     * ***CONSTRUCTORS***
+     */
     public Model() {
         this.observers = new LinkedList<Observer>();
         this.groups = new ArrayList<>();
         this.students = new ArrayList<>();
-        //initData();
     }
-    
-    public void addObserver(Observer o){
+
+    // methods to implement Observer/Observable pattern.
+    public void addObserver(Observer o) {
         observers.add(o);
     }
-    
-    public void notifyObservers(Object o){
-        for(Observer obs: observers){
-            obs.update(this,o);
+
+    public void notifyObservers(Object o) {
+        for (Observer obs : observers) {
+            obs.update(this, o);
         }
     }
-    
-    public void listGroup(){
-        //TODO
-    } 
-    
-    public void addGroup(){
-        //TODO
-    }
-    
-    public void modifyGroup(){
-        //TODO
-    }
-     public void removeGroup(){
-        //TODO
-    }
-    
-    public void listStudents(){
-        //TODO
-    }
-    
-    public void addStudents(){
-        //TODO
-    }
-    
-    public void modifyStudents(){
-        //TODO
-    }
-    
-    public void removeStudnets(){
-        //TODO
-    }
-    
-    public void enrolStudent(){
-        //TODO
-    }
-    
-    public void unenrolStudent(){
+
+    // Methods to manage data.
+    public void listGroup() {
         //TODO
     }
 
-    private void initData() {
-        
+    public void addGroup(Group group) {
+        //TODO
     }
+
+    public void modifyGroup(String code) {
+        //TODO
+    }
+    
+    public void searchGroupByCode(String code){
+        //TODO
+    }
+
+    public void removeGroup(String id) {
+        //TODO
+    }
+
+    public void listStudents() {
+        //TODO
+    }
+
+    public void addStudents(Student student) {
+        //TODO
+    }
+
+    public void modifyStudents(String id) {
+        //TODO
+    }
+
+    public void searchStudentByCode(String code){
+        //TODO
+    }
+
+    public void removeStudnets(String id) {
+        //TODO
+    }
+
+    public void enrolStudent(String id) {
+        //TODO
+    }
+
+    public void unenrolStudent(String id) {
+        //TODO
+    }
+
 }
