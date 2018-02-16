@@ -17,16 +17,16 @@ USE dbacademia;
 CREATE TABLE `student` (
 id int(4) NOT NULL auto_increment,
 name varchar(20) default NULL,
-age int(4) default NULL,
+age int(1) default NULL,
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
 -- creació taula group.
-CREATE TABLE `group` (
+CREATE TABLE `groups` (
 id int(4) NOT NULL auto_increment,
-code varchar(20) UNIQUE not NULL,
-grade varchar(100) default NULL,
-level int(4) default 1,
+code varchar(20) UNIQUE,
+grade varchar(100),
+level int(1),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -50,7 +50,7 @@ INSERT INTO student
 (16,'Alejandro',23);
 
 
-INSERT INTO group
+INSERT INTO groups
 (`id`,`code`,`grade`,`level`)VALUES
 (1,'DAM-1','Desenvolupament aplicacions multiplataforma',1),
 (2,'DAM-2','Desenvolupament aplicacions multiplataforma',2),
