@@ -1,5 +1,9 @@
 package mvcschool.model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author alumne
@@ -79,6 +83,30 @@ public class Student {
         sb.append(age);
         sb.append(" }");
         return sb.toString();
+    }
+    
+     /**
+     * input()code inputs an students from the user
+     *
+     * @return the article read or null in case of error
+     * @throws java.io.IOException
+     */
+    public static Student input() throws IOException {
+        Student student = null;
+        try {
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(System.in));
+            System.out.print("Input the id: ");
+            long id = Long.parseLong(br.readLine());
+            System.out.print("Input the Name: ");
+            String name = br.readLine();
+            System.out.println("Input the Age: ");
+            int age = Integer.parseInt(br.readLine());
+            student = new Student(id, name, age);
+        } catch (NumberFormatException | IOException nfe) {
+            student = null;
+        }
+        return student;
     }
     
 }

@@ -8,7 +8,9 @@ import java.util.Observable;
 import java.util.Observer;
 import mvcschool.EventMessage;
 import mvcschool.control.Controller;
+import mvcschool.model.Group;
 import mvcschool.model.Model;
+import mvcschool.model.Student;
 
 /**
  *
@@ -18,23 +20,29 @@ public class View implements Observer {
 
     private Controller control;
     private Model model;
-    private Menu menu;
+    private MenuSchool menu;
     private boolean exit;
+    String id;
 
     /**
-     * ****CONSTRUCTOR
+     * CONSTRUCTOR
      *
      * @param control
-     * @param model****
+     * @param model
      */
     public View(Controller control, Model model) {
         this.control = control;
         this.model = model;
         this.model.addObserver(this);
-        this.menu = new Menu();
-        doControl();
+        this.menu = new MenuSchool();     
     }
 
+    /**
+     * You are informed if the action was carried out or not
+     *
+     * @param o
+     * @param arg
+     */
     @Override
     public void update(Observable o, Object arg) {
         if (arg instanceof EventMessage) {
@@ -88,20 +96,24 @@ public class View implements Observer {
         }
     }
 
-    public void doControl() {
+    /**
+     * The menu is displayed and you are asked which option you want to make
+     * from the menu to send it to the processAction
+     */
+    public void doControl() throws IOException {
         do {
             menu.show();
             String action = menu.getSelectedOptionActionCommand();
             processAction(action);
-
         } while (!exit);
     }
 
     /**
-     * we send you the action
-     * @param action 
+     * Receives the action of the doControl method
+     *
+     * @param action
      */
-    public void processAction(String action) {
+    public void processAction(String action) throws IOException {
         if (action != null) {
             switch (action) {
                 case "exit": // exit.
@@ -109,9 +121,12 @@ public class View implements Observer {
                     break;
                 case "list_groups": // list all group.
                     //TODO
+                    control.listGroup();
                     break;
                 case "add_group": // add group.
-                    //TODO                    
+                    Group group=Group.input();
+                    control.addGroup(group);
+                    //TODO
                     break;
                 case "modify_group": // modify group.
                     //TODO
@@ -131,7 +146,7 @@ public class View implements Observer {
                 case "delete_modify": // remove students.
                     //TODO
                     break;
-                case "enol_student": // Enrol student in a group.
+                case "enrol_student": // Enrol student in a group.
                     //TODO
                     break;
                 case "unenrol_student": // Unenrol student from group
@@ -144,16 +159,20 @@ public class View implements Observer {
         }
     }
 
+    /**
+     * We send a message to the user
+     * @param s 
+     */
     private void alert(String s) {
         System.out.print(s);
     }
 
-    private void displayList(List lst) {
-        for (Object o : lst) {
-            System.out.println(o.toString());
-        }
-    }
-
+    /**
+     * With this method we will ask the user.
+     *
+     * @param msg
+     * @return
+     */
     private String inputString(String msg) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String s = "";
@@ -165,5 +184,153 @@ public class View implements Observer {
         }
         return s;
     }
+    
+    /**
+    * 
+    * @param lst 
+    */
+    private void displayList(List lst) {
+        for (Object o : lst) {
+            System.out.println(o.toString());
+        }
+    }
 
+    /**
+     * we show the group information
+     * @param group 
+     */
+    public void displayGroup(Group group) {
+
+    }
+
+    /**
+     * we show the student information
+     * @param student 
+     */
+    public void displayStudent(Student student) {
+
+    }
+
+    /**
+     * we show the list of groups
+     * @param groupList 
+     */
+    public void displayGroupList(List<Group> groupList) {
+        for (Object o : groupList) {
+            System.out.println(o.toString());
+        }
+    }
+
+    /**
+     * we show the list of student
+     * @param studentList 
+     */
+    public void displayStudentList(List<Student> studentList) {
+        for (Object o : studentList) {
+            System.out.println(o.toString());
+        }
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Student inputStudent() {
+        return null;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Group inputGroup() {
+        return null;
+    }
 }
+
+/**
+ * The controller is instantiated and the add method is called. uses
+ * {@link mvcschool.control.Controller#addGroup(mvcschool.model.Group)}
+ */
+//public void addGroup() {
+//TODO
+//    }
+/**
+ * You will be asked the group id to modify. With the search method we confirm
+ * if the group id exists, therefore with a message we will tell you if it
+ * exists or not. The controller is instantiated and the modify method is
+ * called. uses {@link mvcschool.control.Controller#modifyGroup(java.lang.String)
+ * }
+ */
+//  public void modifyGroup() {
+//TODO
+//}
+/**
+ * You will be asked the group id to delete. With the search method we confirm
+ * if the group id exists, therefore with a message we will tell you if it
+ * exists or not. The controller is instantiated and the delete method is
+ * called. uses {@link mvcschool.control.Controller#removeGroup(java.lang.String)
+ * }
+ */
+//public void deleteGroup() {
+//TODO
+//}
+/**
+ * The controller is instantiated and the students list method is called. uses
+ * {@link mvcschool.control.Controller#listStudents()}
+ */
+// public void listStudents() {
+//TODO
+//}
+/**
+ * The controller is instantiated and the add method is called. uses {@link mvcschool.control.Controller#addStudents(mvcschool.model.Student)
+ * }
+ */
+///public void addStudents() {
+//TODO
+//}
+/**
+ * You will be asked the student id to modify. With the search method we confirm
+ * if the student id exists, therefore with a message we will tell you if it
+ * exists or not. The controller is instantiated and the modify method is
+ * called. uses {@link mvcschool.control.Controller#modifyStudents(java.lang.String)
+ * }
+ */
+//public void modifyStudents() {
+//TODO
+//}
+/**
+ * You will be asked the student id to delete. With the search method we confirm
+ * if the student id exists, therefore with a message we will tell you if it
+ * exists or not. The controller is instantiated and the delete method is
+ * called. uses {@link mvcschool.control.Controller#removeStudents(java.lang.String)
+ * }
+ */
+//public void deleteStudents() {
+//TODO
+//}
+/**
+ * the user is asked for the student's id. Instance the controller and with the
+ * search method we check if the student really exists, therefore with a message
+ * we confirm if it exists or does not exist. Then we ask for the id of the
+ * group. The group search method is called to confirm that this group exists
+ * and with a message we indicate that the group exists or not. then we will
+ * register the student to the indicated group uses {@link mvcschool.control.Controller#enrolStudent(java.lang.String)
+ * }
+ */
+//public void enrolStudents() {
+//TODO
+//}
+/**
+ * the user is asked for the student's id. Instance the controller and with the
+ * search method we check if the student really exists, therefore with a message
+ * we confirm if it exists or does not exist. Then we ask for the id of the
+ * group. The group search method is called to confirm that this group exists
+ * and with a message we indicate that the group exists or not. then we remove
+ * the student from the indicated group uses {@link mvcschool.control.Controller#unenrolStudent(java.lang.String)
+ * }
+ */
+//public void unenrolStudents() {
+//TODO
+//}
+

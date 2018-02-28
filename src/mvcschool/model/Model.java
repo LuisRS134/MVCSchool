@@ -41,49 +41,113 @@ public class Model extends Observable {
     // Methods to manage data.
     public void listGroup() {
         //TODO
-    }
-
-    public void addGroup(Group group) {
-        //TODO
-    }
-
-    public void modifyGroup(String code) {
-        //TODO
+        System.out.println("conectado con model ---> metodo listGroup");
     }
     
-    public void searchGroupByCode(String code){
+    /**
+     * receives the new data that the user enters
+     * @param group 
+     */
+    public void addGroup(Group group) {
+        System.out.println("conectado con model ---> metodo addGroup");
         //TODO
     }
 
+    /**
+     * The list of groups is scanned and the code that was asked 
+     * in the user's view is compared with the codes that have been 
+     * entered in the group list, if it matches we let you enter the new data 
+     * @param id
+     */
+    public void modifyGroup(String id) {
+        //TODO
+        System.out.println("conectado con model ---> metodo modifyGroup");
+    }
+    
+    /**
+     * The list of groups is scanned and the code that was asked 
+     * in the user's view is compared with the codes that have been 
+     * entered in the group list, 
+     * @param id
+     */
+    public void searchGroupByCode(String id){
+        System.out.println("conectado con model ---> metodo searchGroupByCode");
+        //TODO
+    }
+
+    /**
+     * The list of groups is scanned and the code that was asked 
+     * in the user's view is compared with the codes that have been 
+     * entered in the group list, if it matches that group will be deleted
+     * @param id 
+     */
     public void removeGroup(String id) {
+        System.out.println("conectado con model ---> metodo removeGroup");
         //TODO
     }
 
     public void listStudents() {
+        System.out.println("conectado con model ---> metodo listStudents");
         //TODO
     }
 
+    /**
+     * receives the new data that the user enters
+     * @param student 
+     */
     public void addStudents(Student student) {
+        System.out.println("conectado con model ---> metodo addStudents");
         //TODO
     }
 
+    /**
+     * The list of students is scanned and the id that was asked 
+     * in the user's view is compared with the id that have been 
+     * entered in the students list, if it matches we let you enter the new data
+     * @param id 
+     */
     public void modifyStudents(String id) {
+        System.out.println("conectado con model ---> metodo modifyStudents");
         //TODO
     }
 
-    public void searchStudentByCode(String code){
+    /**
+     * The list of students is scanned and the code that was asked 
+     * in the user's view is compared with the codes that have been 
+     * entered in the students list,
+     * @param id 
+     */
+    public void searchStudentByCode(String id){
+        System.out.println("conectado con model ---> metodo searchStudentByCode");
         //TODO
     }
 
-    public void removeStudnets(String id) {
-        //TODO
+    /**
+     * The list of students is scanned and the id that was asked 
+     * in the user's view is compared with the id that have been 
+     * entered in the student list, if it matches that student will be deleted
+     * @param id 
+     */
+    public void removeStudents(String id) {
+        System.out.println("conectado con model ---> metodo removeStudents");
+        //TODO  
     }
 
+    /**
+     * A student is still admitted to a group
+     * @param id 
+     */
     public void enrolStudent(String id) {
+        System.out.println("conectado con model ---> metodo enrolStudent");
         //TODO
     }
 
+    /**
+     * A student is removed from a group
+     * @param id 
+     */
     public void unenrolStudent(String id) {
+        System.out.println("conectado con model ---> metodo unenrolStudent");
         //TODO
     }
 

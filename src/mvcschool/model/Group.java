@@ -1,16 +1,23 @@
 package mvcschool.model;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  *
  * @author alumne
  */
 public class Group {
+
     long id;
     String code;
     String grade;
     int level;
 
-    /*****CONSTRUCTORS*****/
+    /**
+     * ***CONSTRUCTORS****
+     */
     public Group(long id, String code, String grade, int level) {
         this.id = id;
         this.code = code;
@@ -18,7 +25,9 @@ public class Group {
         this.level = level;
     }
 
-    /******GETTER AND SETTER******/
+    /**
+     * ****GETTER AND SETTER*****
+     */
     public long getId() {
         return id;
     }
@@ -75,11 +84,10 @@ public class Group {
         }
         return true;
     }
-    
 
     @Override
     public String toString() {
-        StringBuilder sb= new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append("Group { ");
         sb.append("Id: ");
         sb.append(id);
@@ -92,5 +100,31 @@ public class Group {
         sb.append(" } ");
         return sb.toString();
     }
-    
+
+    /**
+     * input()code inputs an Group from the user
+     *
+     * @return the article read or null in case of error
+     * @throws java.io.IOException
+     */
+    public static Group input() throws IOException {
+        Group group = null;
+        try {
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(System.in));
+            System.out.print("Input the id: ");
+            long id = Long.parseLong(br.readLine());
+            System.out.print("Input the Code: ");
+            String code = br.readLine();
+            System.out.print("Input the Grade: ");
+            String grade = br.readLine();
+            System.out.println("Input the Level: ");
+            int level = Integer.parseInt(br.readLine());
+            group = new Group(id, code, grade, level);
+        } catch (NumberFormatException | IOException nfe) {
+            group = null;
+        }
+        return group;
+    }
+
 }

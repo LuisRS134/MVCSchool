@@ -7,7 +7,9 @@ package mvcschool.view;
 public class MenuSchool extends Menu{
     
     public MenuSchool() {
-        super(" Menu ");
+        
+        super("Menu");//Title
+        //menu list with your actions
         addOption(new Option("Exit","exit"));
         addOption(new Option("List group","list_groups"));
         addOption(new Option("Add group","add_group"));
