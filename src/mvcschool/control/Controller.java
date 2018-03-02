@@ -25,18 +25,18 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of listing groups.
-     * uses {@link mvcschool.model.Model#listGroup() }
+     * We instantiate the model and call the method of listing groups. 
+     * uses {@link mvcschool.model.Model#listGroup()
+     * }
      */
     public void listGroup() {
-        //TODO
-        System.out.println("conectado con controller-->metodo listGroup");
         model.listGroup();
     }
 
     /**
-     * We instantiate the model and call the method of add group.
-     * uses {@link mvcschool.model.Model#addGroup(mvcschool.model.Group)  }
+     * We instantiate the model and call the method of add group. uses 
+     * {@link mvcschool.model.Model#addGroup(mvcschool.model.Group)
+     * }
      */
     public void addGroup(Group group) {
         System.out.println("conectado con controller-->metodo addGroup");
@@ -54,9 +54,10 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of search group.
-     * uses {@link mvcschool.model.Model#searchGroupByCode(java.lang.String) }
-     * @param code 
+     * We instantiate the model and call the method of search group. uses {@link mvcschool.model.Model#searchGroupByCode(java.lang.String)
+     * }
+     *
+     * @param code
      */
     public void searchGroupByCode(String code) {
         //TODO
@@ -65,8 +66,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of remove group.
-     * uses {@link mvcschool.model.Model#removeGroup(java.lang.String) ) }
+     * We instantiate the model and call the method of remove group. uses {@link mvcschool.model.Model#removeGroup(java.lang.String) )
+     * }
      */
     public void removeGroup(String id) {
         System.out.println("conectado con controller-->metodo removeGroup");
@@ -75,8 +76,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of listing students.
-     * uses {@link mvcschool.model.Model#listStudents() ) }
+     * We instantiate the model and call the method of listing students. uses {@link mvcschool.model.Model#listStudents() )
+     * }
      */
     public void listStudents() {
         System.out.println("conectado con controller-->metodo listStudent");
@@ -85,8 +86,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of add student.
-     * uses {@link mvcschool.model.Model#addStudents(mvcschool.model.Student) ) }
+     * We instantiate the model and call the method of add student. uses {@link mvcschool.model.Model#addStudents(mvcschool.model.Student) )
+     * }
      */
     public void addStudents(Student student) {
         System.out.println("conectado con controller-->metodo addStudent");
@@ -95,8 +96,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of modify student.
-     * uses {@link mvcschool.model.Model#modifyStudents(java.lang.String) }
+     * We instantiate the model and call the method of modify student. uses {@link mvcschool.model.Model#modifyStudents(java.lang.String)
+     * }
      */
     public void modifyStudents(String id) {
         System.out.println("conectado con controller-->metodo modifyStudnets");
@@ -105,9 +106,10 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of search student.
-     * uses {@link mvcschool.model.Model#searchStudentByCode(java.lang.String) }
-     * @param code 
+     * We instantiate the model and call the method of search student. uses {@link mvcschool.model.Model#searchStudentByCode(java.lang.String)
+     * }
+     *
+     * @param code
      */
     public void searchStudentByCode(String code) {
         System.out.println("conectado con controller-->metodo searchStudentByCode");
@@ -116,8 +118,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of remove student.
-     * uses {@link mvcschool.model.Model#removeStudents(java.lang.String) }
+     * We instantiate the model and call the method of remove student. uses {@link mvcschool.model.Model#removeStudents(java.lang.String)
+     * }
      */
     public void removeStudents(String id) {
         System.out.println("conectado con controller-->metodo removeStudents");
@@ -126,8 +128,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of enrol student.
-     * uses {@link mvcschool.model.Model#enrolStudent(java.lang.String)} 
+     * We instantiate the model and call the method of enrol student. uses
+     * {@link mvcschool.model.Model#enrolStudent(java.lang.String)}
      */
     public void enrolStudent(String id) {
         System.out.println("conectado con controller-->metodo enrolStudnet");
@@ -136,8 +138,8 @@ public class Controller {
     }
 
     /**
-     * We instantiate the model and call the method of unenrol student.
-     * uses {@link mvcschool.model.Model#unenrolStudent(java.lang.String)}
+     * We instantiate the model and call the method of unenrol student. uses
+     * {@link mvcschool.model.Model#unenrolStudent(java.lang.String)}
      */
     public void unenrolStudent(String id) {
         System.out.println("conectado con controller-->metodo unenrolStuendent");

@@ -13,14 +13,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON dbacademia.* TO 'academia'@'localhost';
 
 USE dbacademia;
 
--- creació taula student.
-CREATE TABLE `student` (
-id int(4) NOT NULL auto_increment,
-name varchar(20) default NULL,
-age int(1) default NULL,
-PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
-
 -- creació taula group.
 CREATE TABLE `groups` (
 id int(4) NOT NULL auto_increment,
@@ -30,24 +22,35 @@ level int(1),
 PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
+-- creació taula student.
+CREATE TABLE `student` (
+id int(4) NOT NULL auto_increment,
+name varchar(20) default NULL,
+age int(1) default NULL,
+group_id int(4) default null,
+PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+Alter Table `student` add foreign key(`group_id`) references `groups`(`id`);
+
 INSERT INTO student
-(`id`,`name`,`age`)VALUES
-(1,'Luis',24),
-(2,'Jorge',24),
-(3,'Jona',18),
-(4,'Lain',23),
-(5,'Marc',17),
-(6,'Toni',20),
-(7,'Emilio',24),
-(8,'Miguel',20),
-(9,'Dani',20),
-(10,'Ponce',20),
-(11,'Kevin',20),
-(12,'Jordi',20),
-(13,'Xavi',20),
-(14,'Sergi',21),
-(15,'Carlos',20),
-(16,'Alejandro',23);
+(`id`,`name`,`age`,`group_id`)VALUES
+(1,'Luis',24,2),
+(2,'Jorge',24,4),
+(3,'Jona',18,3),
+(4,'Lain',23,6),
+(5,'Marc',17,8),
+(6,'Toni',20,2),
+(7,'Emilio',24,1),
+(8,'Miguel',20,7),
+(9,'Dani',20,4),
+(10,'Ponce',20,6),
+(11,'Kevin',20,2),
+(12,'Jordi',20,1),
+(13,'Xavi',20,7),
+(14,'Sergi',21,7),
+(15,'Carlos',20,1),
+(16,'Alejandro',23,2);
 
 
 INSERT INTO groups

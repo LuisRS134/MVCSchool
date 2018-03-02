@@ -120,12 +120,11 @@ public class View implements Observer {
                     exit = true;
                     break;
                 case "list_groups": // list all group.
-                    //TODO
                     control.listGroup();
                     break;
                 case "add_group": // add group.
-                    Group group=Group.input();
-                    control.addGroup(group);
+                   // Group group=Group.input();
+                   // control.addGroup(group);
                     //TODO
                     break;
                 case "modify_group": // modify group.
